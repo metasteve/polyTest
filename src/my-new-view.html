@@ -1,7 +1,7 @@
-<html><head><link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/polymer/polymer.html">
 
-</head><body><dom-module id="my-new-view">
-  
+<dom-module id="my-new-view">
+  <!-- Defines the element's style and local DOM -->
   <template>
     <style>
       :host {
@@ -13,7 +13,10 @@
 
     <h1>New view1</h1>
   </template>
-  
-  <script>Polymer({is:"my-new-view"});</script>
+  <!-- Creates the element's prototype and registers it -->
+  <script>
+    Polymer({
+      is: 'my-new-view'
+    });
+  </script>
 </dom-module>
-</body></html>

@@ -1,6 +1,16 @@
-<html><head><link rel="import" href="../bower_components/polymer/polymer.html">
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
 
-</head><body><dom-module id="shrine-featured-item">
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="shrine-featured-item">
 
   <template>
 
@@ -155,7 +165,7 @@
 
     </style>
 
-    <div class="price">[[item.price]]</div>
+    <!-- <div class="price">[[item.price]]</div> -->
     <div class="pic">
       <img id="img">
     </div>
@@ -165,14 +175,36 @@
         <p>[[item.quote]]</p>
         <div class="author">
           <img src="[[item.storeAvatarUrl]]">
-          [[item.storeName]]
+          [[item.storeName]] 
         </div>
       </div>
     </div>
 
   </template>
 
-  <script>Polymer({is:"shrine-featured-item",properties:{item:{type:Object,observer:"_itemChanged"}},_itemChanged:function(i){this.style.visibility=i&&i.title?"visible":"hidden",this.$.img.src="",this.$.img.src=i?i.imageUrl:""}});</script>
+  <script>
+
+  Polymer({
+
+    is: 'shrine-featured-item',
+
+    properties: {
+
+      item: {
+        type: Object,
+        observer: '_itemChanged'
+      }
+
+    },
+
+    _itemChanged: function(item) {
+      this.style.visibility = item && item.title ? 'visible' : 'hidden';
+      this.$.img.src = '';
+      this.$.img.src = item ? item.imageUrl : '';
+    }
+
+  });
+
+  </script>
 
 </dom-module>
-</body></html>
